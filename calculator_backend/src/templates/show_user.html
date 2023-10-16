@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>History</title>
+    <h1>History</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>calculation</th>
+                <th>result</th>
+            </tr>
+        </thead>
+
+    <tbody>
+    {% for item in data_list %}
+     <tr>
+                <td>{{item.calculation}}</td>
+                <td>{{item.result}}</td>
+     </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+</head>
+<body>
+
+</body>
+</html>

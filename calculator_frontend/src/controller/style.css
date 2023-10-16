@@ -1,0 +1,27 @@
+body{
+    //
+    background: rgba(0, 65, 253, 0.14);
+    border: 1px solid rgba(0, 65, 253, 0.14);
+    box-shadow: 2px 2px 2px rgba(0, 65, 253, 0.14);
+}
+h3{
+    font-size: 35px;
+    text-align: center;
+}
+#show input{
+    width:720px;
+    height:60px;
+    font-size:30px;
+    border: 1px solid rgba(0, 65, 253, 0.14);
+    box-shadow: 3px 3px 3px rgb(0, 104, 253);
+    background: rgba(0, 65, 253, 0.14);
+}
+#fgx input{
+    width: 100px;
+    height: 70px;
+    font-size: 28px;
+    box-shadow: 3px 3px 3px rgb(0, 104, 253);
+}
+#fgx input:hover{
+    background: lightgray;
+}
