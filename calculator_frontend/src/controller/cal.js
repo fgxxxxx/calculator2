@@ -58,3 +58,25 @@ function equals()	//equal to
     laststr = str;
     lastresult = result;
 }
+function sqrt() {
+    str = document.getElementById("text");
+    result = Math.sqrt(eval(str.value));
+    str.value = result;
+}
+
+function log() {
+    str = document.getElementById("text");
+    result = Math.log10(eval(str.value));
+    str.value = result;
+}
+
+function exponential() {
+    str = document.getElementById("text").value;
+    document.getElementById("text").value += Math.E;
+}
+
+function pi() {
+    str = document.getElementById("text").value;
+    document.getElementById("text").value = Math.PI;
+}
+
