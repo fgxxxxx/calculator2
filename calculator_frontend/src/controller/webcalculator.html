@@ -5,6 +5,37 @@
     <title>Calculator</title>
     <link href="./style.css" rel="stylesheet" type="text/css" />
     <script type="text/javascript" src="./cal.js"></script>
+    <script type="text/javascript" src="js/jquery-3.5.0.js"></script>
+    <script>
+//Called when the web page is loaded
+$(function () {
+  //Provides the click method for the button with id=history
+  $("#history").click(function () {
+    //request ajax to send
+    $.ajax({
+      url: 'http://127.0.0.1:5000/show/user',
+      type: "get",
+      dataType: "json"
+    })
+      //Access success
+      .done(function (msg) {
+        //Clear data other than the first row (header) of the table with id=data
+        $("#data tr:not(:first)").empty();
+        //Iterate over the returned json array
+        $.each(msg, function (index, user) {
+          //Adds the contents of each element of the json array to the table
+          $("#data").append("<tr>" +
+            "<td>" + user.calculation + "</td>" +
+            "<td>" + user.result + "</td>" + "</tr>")
+        })
+      })
+      //Access failure
+      .fail(function () {
+        alert("ERROR!")
+      })
+  })
+})
+    </script>
 </head>
 <body>
 <div id="calculator">
@@ -22,6 +53,7 @@
                 <td><input type="button" value="-" onclick="display('-')"></td>
                 <td><input type="button" value="sin" onclick="sin()"></td>
                 <td><input type="button" value="asin" onclick="asin()"></td>
+                <td><input type="button" value="√" onclick="sqrt()"></td>
             </tr>
             <tr>
                 <td><input type="button" value="4" onclick="display(4)"></td>
@@ -31,6 +63,7 @@
                 <td><input type="button" value="/" onclick="display('/')"></td>
                 <td><input type="button" value="cos" onclick="cos('cos(')"></td>
                 <td><input type="button" value="acos" onclick="acos('acos(')"></td>
+                <td><input type="button" value="log" onclick="log()"></td>
             </tr>
             <tr>
                 <td><input type="button" value="1" onclick="display(1)"></td>
@@ -40,10 +73,12 @@
                 <td><input type="button" value=")" onclick="display(')')"></td>
                 <td><input type="button" value="tan" onclick="tan()"></td>
                 <td><input type="button" value="atan" onclick="atan()"></td>
+                <td><input type="button" value="e" onclick="exponential()"></td>
             </tr>
             <tr>
                 <td><input type="button" value="." onclick="display('.')"></td>
                 <td><input type="button" value="0" onclick="display(0)"></td>
+                <td><input type="button" value="π" onclick="pi()"></td>
                 <td><input type="button" value="←" onclick="back()"></td>
                 <td><input type="button" value="c" onclick="reset()"></td>
                 <td><input type="button" value="%" onclick="display('%')"></td>
